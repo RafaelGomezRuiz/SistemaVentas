@@ -13,5 +13,7 @@ namespace SistemaVentas.Core.Application.ViewModels.Direcciones
         [Required(ErrorMessage = "Debe colocar el numero de contacto")]
         public string NumeroCelular { get; set; }
         public string? NumeroCasa { get; set; }
+        public string UserId { get; set; }
+
     }
 }

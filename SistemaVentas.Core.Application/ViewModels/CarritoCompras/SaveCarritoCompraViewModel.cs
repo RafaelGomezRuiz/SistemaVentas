@@ -18,7 +18,5 @@ namespace SistemaVentas.Core.Application.ViewModels.CarritoCompras
         public DateTime? HorarioDisponible { get; set; }
 
         public int InventarioId { get; set; }
-        public ICollection<InventarioViewModel> InventarioProductos { get; set; }
-        public VentaViewModel Venta { get; set; }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using SistemaVentas.Core.Application.Enums;
 using System.ComponentModel.DataAnnotations;
 
 namespace StockApp.Core.Application.ViewModels.Products
@@ -16,7 +17,7 @@ namespace StockApp.Core.Application.ViewModels.Products
         [Range(1, int.MaxValue, ErrorMessage = "Debe colocar el precio del producto")]
         [DataType(DataType.Currency)]
         public decimal Precio { get; set; }
-        public int Status { get; set; }
+        public EnumEstadoProducto Status { get; set; }
 
         [Range(1, int.MaxValue, ErrorMessage = "Debe colocar la marca del producto")]
 

@@ -7,5 +7,6 @@
         public string Sector { get; set; }
         public string NumeroCelular { get; set; }
         public string? NumeroCasa { get; set; }
+
     }
 }

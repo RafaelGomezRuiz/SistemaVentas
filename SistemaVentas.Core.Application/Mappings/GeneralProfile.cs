@@ -1,46 +1,143 @@
 ﻿using AutoMapper;
 using SistemaVentas.Core.Application.Dtos.Account;
+using SistemaVentas.Core.Application.ViewModels.CarritoCompras;
+using SistemaVentas.Core.Application.ViewModels.Direcciones;
+using SistemaVentas.Core.Application.ViewModels.Inventario;
+using SistemaVentas.Core.Application.ViewModels.Marca;
+using SistemaVentas.Core.Application.ViewModels.Products;
 using SistemaVentas.Core.Application.ViewModels.Users;
+using SistemaVentas.Core.Domain.Entities;
+using StockApp.Core.Application.ViewModels.Categories;
+using StockApp.Core.Application.ViewModels.Products;
 namespace StockApp.Core.Application.Mappings
 {
     public class GeneralProfile : Profile
     {
         public GeneralProfile()
         {
-            //CreateMap<Product, ProductViewModel>()
-            //    .ForMember(destino => destino.CategoryName, otp => otp.Ignore())
-            //    .ReverseMap()
-            //    .ForMember(destino => destino.Created, otp => otp.Ignore())
-            //    .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
-            //    .ForMember(destino => destino.LastModified, otp => otp.Ignore())
-            //    .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore());
+            #region Productos
+            CreateMap<ProductoEntity, ProductoViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore());
 
-            //CreateMap<Product, SaveProductViewModel>()
-            //    .ForMember(destino => destino.Categories, otp => otp.Ignore())
-            //    .ForMember(destino => destino.File, otp => otp.Ignore())
-            //    .ReverseMap()
-            //    .ForMember(destino => destino.Created, otp => otp.Ignore())
-            //    .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
-            //    .ForMember(destino => destino.LastModified, otp => otp.Ignore())
-            //    .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore())
-            //    .ForMember(destino => destino.Category, otp => otp.Ignore());
+            CreateMap<ProductoEntity, SaveProductoViewModel>()
+                .ForMember(destino => destino.ImagenesRuta, otp => otp.Ignore())
+                .ForMember(destino => destino.Images, otp => otp.Ignore())
+                .ForMember(destino => destino.Categorias, otp => otp.Ignore())
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.Marca, otp => otp.Ignore())
+                .ForMember(destino => destino.Categorias, otp => otp.Ignore())
+                .ForMember(destino => destino.Inventario, otp => otp.Ignore())
+                .ForMember(destino => destino.Imagenes, otp => otp.Ignore());
+            #endregion
 
-            //CreateMap<Category, CategoryViewModel>()
-            //    .ForMember(destino => destino.ProductsQuantity, otp => otp.Ignore())
-            //    .ReverseMap()
-            //    .ForMember(destino => destino.Created, otp => otp.Ignore())
-            //    .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
-            //    .ForMember(destino => destino.LastModified, otp => otp.Ignore())
-            //    .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore())
-            //    .ForMember(destino => destino.Products, otp => otp.Ignore());
+            #region categoria
+            CreateMap<CategoriaEntity, CategoriaViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore());
 
-            //CreateMap<Category, SaveCategoryViewModel>()
-            //    .ReverseMap()
-            //    .ForMember(destino => destino.Created, otp => otp.Ignore())
-            //    .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
-            //    .ForMember(destino => destino.LastModified, otp => otp.Ignore())
-            //    .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore())
-            //    .ForMember(destino => destino.Products, otp => otp.Ignore());
+            CreateMap<CategoriaEntity, SaveCategoriaViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.Productos, otp => otp.Ignore());
+            #endregion
+
+            #region marca
+            CreateMap<MarcaEntity, MarcaEntity>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore());
+
+            CreateMap<MarcaEntity, SaveMarcaViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.Productos, otp => otp.Ignore());
+            #region marca
+            CreateMap<MarcaEntity, MarcaEntity>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore());
+
+            CreateMap<MarcaEntity, SaveMarcaViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.Productos, otp => otp.Ignore());
+            #endregion
+            #endregion
+
+            #region Inventario
+            CreateMap<InventarioEntity, InventarioViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore());
+
+            CreateMap<InventarioEntity, SaveInventarioViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.Created, otp => otp.Ignore())
+                .ForMember(destino => destino.CreatedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModified, otp => otp.Ignore())
+                .ForMember(destino => destino.LastModifiedBy, otp => otp.Ignore())
+                .ForMember(destino => destino.Productos, otp => otp.Ignore())
+                .ForMember(destino => destino.Carrito, otp => otp.Ignore());
+            #endregion
+
+            #region Direccion
+            CreateMap<DireccionEntity, DireccionViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.UserId, otp => otp.Ignore());
+
+
+            CreateMap<DireccionEntity, SaveDireccionViewModel>()
+                .ReverseMap();
+            #endregion
+
+            #region CarritoCompras
+            CreateMap<CarritoCompraEntity, CarritoCompraViewModel>()
+                .ReverseMap();
+
+
+            CreateMap<CarritoCompraEntity, SaveCarritoCompraViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.Venta, otp => otp.Ignore())
+                .ForMember(destino => destino.InventarioProductos, otp => otp.Ignore());
+
+            #endregion
+
+            #region Ventas
+            CreateMap<DireccionEntity, DireccionViewModel>()
+                .ReverseMap()
+                .ForMember(destino => destino.UserId, otp => otp.Ignore());
+
+
+            CreateMap<DireccionEntity, SaveDireccionViewModel>()
+                .ReverseMap();
+            #endregion
+
 
             CreateMap<AuthenticationRequest, LoginViewModel>()
                 .ForMember(destino => destino.HasError, otp => otp.Ignore())

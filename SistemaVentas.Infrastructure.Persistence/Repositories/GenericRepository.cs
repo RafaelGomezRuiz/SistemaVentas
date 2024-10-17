@@ -47,12 +47,13 @@ namespace SistemaVentas.Infrastructure.Persistence.Repositories
             return await _dbContext.Set<Entity>().FindAsync(id);
         }
 
-        public async Task UpdateAsync(Entity entity, int id)
+        public async Task<Entity> UpdateAsync(Entity entity, int id)
         {
             Entity entry = await GetById(id);
 
             _dbContext.Entry(entry).CurrentValues.SetValues(entity);
             await _dbContext.SaveChangesAsync();
+            return entry;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using SistemaVentas.Core.Application.ViewModels.ImagenProducto;
+﻿using SistemaVentas.Core.Application.Enums;
+using SistemaVentas.Core.Application.ViewModels.ImagenProducto;
 using SistemaVentas.Core.Application.ViewModels.Inventario;
 using SistemaVentas.Core.Application.ViewModels.Marca;
 using StockApp.Core.Application.ViewModels.Categories;
@@ -11,7 +12,7 @@ namespace SistemaVentas.Core.Application.ViewModels.Products
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
-        public int Status { get; set; }
+        public EnumEstadoProducto Status { get; set; }
 
         public int MarcaId { get; set; }
         public MarcaViewModel Marca { get; set; }

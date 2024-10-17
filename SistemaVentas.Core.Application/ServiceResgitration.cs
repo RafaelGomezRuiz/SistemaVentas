@@ -16,8 +16,13 @@ namespace SistemaVentas.Infraestructure.Persistence
 
             #region Services
             //services.AddTransient(typeof(IGenericService<SaveViewModel, ViewModel>), typeof(GenericService<SaveViewModel, ViewModel>));
-            //services.AddTransient<IProductService, ProductService>();
-            //services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IMarcaService, MarcaService>();
+            services.AddTransient<IInventarioService, InventarioService>();
+            services.AddTransient<IDireccionService, DireccionService>();
+            services.AddTransient<ICarritoComprasService, CarritoComprasService>();
+            services.AddTransient<IVentaService, VentaService>();
+            services.AddTransient<IProductoService, ProductoService>();
+            services.AddTransient<ICategoryService, CategoriaService>();
             services.AddTransient<IUserService, UserService>();
             #endregion
         }
