@@ -1,0 +1,68 @@
+﻿@using SistemaVentas.Core.Application.ViewModels.Products;
+@using SistemaVentas.Core.Application.Enums;
+
+@model SaveProductoViewModel;
+@*
+    
+*@
+@{
+    bool editMode = Model.Id == 0 ? true : false;
+}
+
+<div class="row">
+    <div class="col-6 offset-3">
+        <div class="card">
+            <div class="card-header">
+                <h3>@(editMode == true ? $"Editando el producto: {Model.Nombre}" : "Creando producto")</h3>
+            </div>
+            <div class="card-body">
+                <form asp-controller="Producto" asp-action=@(editMode ? "Edit" : "Create")>
+                    <div class="row">
+                        <div class="mb-3">
+                            <label asp-for="Nombre" class="form-label">Nombre:</label>
+                            <input asp-for="Nombre" class="form-control">
+                            <span asp-validation-for="Nombre" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Descripcion" class="form-label">Descripcion:</label>
+                            <input asp-for="Descripcion" class="form-control">
+                            <span asp-validation-for="Descripcion" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3">
+                            <label asp-for="Precio" class="form-label">Precio:</label>
+                            <input asp-for="Precio" class="form-control">
+                            <span asp-validation-for="Precio" class="text-danger"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Status" class="form-label">Status:</label>
+                            <select asp-for="Status" class="form-select">
+                                <option value="@EnumEstadoProducto.DISPONIBLE">Disponible</option>
+                                <option value="@EnumEstadoProducto.AGOTADO">Agotado</option>
+                                <option value="@EnumEstadoProducto.OFERTA">Oferta</option>
+                                <option value="@EnumEstadoProducto.LIQUIDACION">Liquidacion</option>
+                            </select>
+                            <span asp-validation-for="Status" class="text-danger"></span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3">
+                            <label asp-for="MarcaId" class="form-label">Id de la marca:</label>
+                            <input asp-for="MarcaId" class="form-control">
+                            <span asp-validation-for="MarcaId" class="text-danger"></span>
+                        </div>
+                        @if (editMode && (Model.Status == EnumEstadoProducto.LIQUIDACION || Model.Status == EnumEstadoProducto.OFERTA))
+                        {
+                            <div class="mb-3">
+                                <label asp-for="PrecioOferta" class="form-label">Precio de oferta:</label>
+                                <input asp-for="PrecioOferta" class="form-control"/>
+                                <span asp-validation-for="PrecioOferta" class="text-danger"></span>
+                            </div>
+                        }
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

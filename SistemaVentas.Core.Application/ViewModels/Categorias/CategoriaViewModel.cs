@@ -1,6 +1,6 @@
 ﻿using SistemaVentas.Core.Application.ViewModels.Products;
 
-namespace StockApp.Core.Application.ViewModels.Categories
+namespace SistemaVentas.Core.Application.ViewModels.Categories
 {
     public class CategoriaViewModel
     {

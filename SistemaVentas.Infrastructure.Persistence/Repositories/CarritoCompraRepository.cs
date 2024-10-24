@@ -6,6 +6,6 @@ namespace SistemaVentas.Infrastructure.Persistence.Repositories
 {
     public class CarritoCompraRepository : GenericRepository<CarritoCompraEntity>, ICarritoCompraRepository
     {
-        public CarritoCompraRepository(ApplicationContext dbContext) : base(dbContext) {}
+        public CarritoCompraRepository(ApplicationContext dbContext) : base(dbContext) { }
     }
 }

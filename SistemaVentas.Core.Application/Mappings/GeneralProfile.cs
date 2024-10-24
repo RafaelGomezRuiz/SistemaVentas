@@ -1,14 +1,13 @@
 ﻿using AutoMapper;
 using SistemaVentas.Core.Application.Dtos.Account;
 using SistemaVentas.Core.Application.ViewModels.CarritoCompras;
+using SistemaVentas.Core.Application.ViewModels.Categories;
 using SistemaVentas.Core.Application.ViewModels.Direcciones;
 using SistemaVentas.Core.Application.ViewModels.Inventario;
 using SistemaVentas.Core.Application.ViewModels.Marca;
 using SistemaVentas.Core.Application.ViewModels.Products;
 using SistemaVentas.Core.Application.ViewModels.Users;
 using SistemaVentas.Core.Domain.Entities;
-using StockApp.Core.Application.ViewModels.Categories;
-using StockApp.Core.Application.ViewModels.Products;
 namespace StockApp.Core.Application.Mappings
 {
     public class GeneralProfile : Profile
@@ -139,6 +138,7 @@ namespace StockApp.Core.Application.Mappings
             #endregion
 
 
+            #region Account
             CreateMap<AuthenticationRequest, LoginViewModel>()
                 .ForMember(destino => destino.HasError, otp => otp.Ignore())
                 .ForMember(destino => destino.ErrorDescription, otp => otp.Ignore())
@@ -158,6 +158,7 @@ namespace StockApp.Core.Application.Mappings
                 .ForMember(destino => destino.HasError, otp => otp.Ignore())
                 .ForMember(destino => destino.ErrorDescription, otp => otp.Ignore())
                 .ReverseMap();
+            #endregion
 
             #region CQRS
 

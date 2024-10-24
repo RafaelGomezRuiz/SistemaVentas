@@ -6,6 +6,6 @@ namespace SistemaVentas.Infrastructure.Persistence.Repositories
 {
     public class DireccionRepository : GenericRepository<DireccionEntity>, IDirecionRepository
     {
-        public DireccionRepository(ApplicationContext dbContext) : base(dbContext){}
+        public DireccionRepository(ApplicationContext dbContext) : base(dbContext) { }
     }
 }

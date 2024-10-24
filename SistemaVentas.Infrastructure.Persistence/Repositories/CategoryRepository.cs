@@ -6,6 +6,6 @@ namespace SistemaVentas.Infrastructure.Persistence.Repositories
 {
     public class CategoryRepository : GenericRepository<CategoriaEntity>, ICategoryRepository
     {
-        public CategoryRepository(ApplicationContext dbContext) : base(dbContext){}
+        public CategoryRepository(ApplicationContext dbContext) : base(dbContext) { }
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StockApp.Core.Application.ViewModels.Products
+namespace SistemaVentas.Core.Application.ViewModels.Products
 {
     public class FilterProductsViewModel
     {

@@ -1,0 +1,92 @@
+﻿@using SistemaVentas.Core.Application.Helpers;
+@inject UserSessionHelper _userSessionHelper;
+@using SistemaVentas.Core.Application.ViewModels.Categories;
+
+@model List<CategoriaViewModel>
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    bool hasUser = await _userSessionHelper.HasUser();
+}
+
+<div class="container">
+    <div class="row mb-3 mt-4">
+        <div class="d-flex gap-2 p-0">
+            <div class="rounded-3 bg-primary p-1 flex-grow-1">
+                <h1 class="fw-bold text-light m-0 p-0 ms-4">Categorias</h1>
+            </div>
+            <a asp-controller="Categoria" asp-action="Create" class="btn btn-success text-light d-flex align-items-center"><i class="bi bi-plus"></i>Agregar categoria</a>
+        </div>
+    </div>
+
+    <div class="row">
+        @if (Model == null || Model.Count == 0)
+        {
+            <h3>No hay categorias</h3>
+        }
+        else
+        {
+            <div class="col p-0">
+                <div class="card border-0">
+                    <div class="card-body">
+                        <table id="categoriesTable" class="table">
+                            <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                         <td>
+                                             @item.Nombre 
+                                         </td>
+                                        <td>
+                                            <a asp-controller="Categoria" asp-route-id="@item.Id" asp-action="Edit" class="btn btn-primary me-2">Edit</a>
+                                            <a asp-controller="Categoria" asp-route-id="@item.Id" asp-action="Delete" class="btn btn-danger me-2">Delete</a>
+                                        </td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#categoriesTable').DataTable({
+                language: {
+                    "decimal": "",
+                    "emptyTable": "No hay información",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                    "infoEmpty": "Show 0 a 0 de 0 entries",
+                    "infoFiltered": "(filtrado de _MAX_ entradas totales)",
+                    "infoPostFix": "",
+                    "thousands": ",",
+                    "lengthMenu": "Show _MENU_ Entries",
+                    "loadingRecords": "charging...",
+                    "processing": "procesing...",
+                    "search": "Search:",
+                    "zeroRecords": "Without Resutls",
+                    "paginate": {
+                        "first": "First",
+                        "last": "Last",
+                        "next": "Next",
+                        "previous": "previous"
+                    }
+                }
+            });
+            console.log("Vista cargada y DataTable inicializado.");
+        });
+    </script>
+}

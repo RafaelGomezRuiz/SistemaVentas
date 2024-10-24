@@ -8,6 +8,7 @@ namespace SistemaVentas.Core.Domain.Entities
         public string Nombre { get; set; }
         public string Descripcion { get; set; }
         public decimal Precio { get; set; }
+        public decimal? PrecioOferta { get; set; }
         public int Status { get; set; }
 
         public int MarcaId { get; set; }

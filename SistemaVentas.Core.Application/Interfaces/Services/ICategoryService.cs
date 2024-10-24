@@ -1,5 +1,5 @@
-﻿using SistemaVentas.Core.Domain.Entities;
-using StockApp.Core.Application.ViewModels.Categories;
+﻿using SistemaVentas.Core.Application.ViewModels.Categories;
+using SistemaVentas.Core.Domain.Entities;
 
 namespace SistemaVentas.Core.Application.Interfaces.Services
 {

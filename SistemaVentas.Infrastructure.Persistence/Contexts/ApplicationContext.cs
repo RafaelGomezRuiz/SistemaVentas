@@ -36,7 +36,7 @@ namespace SistemaVentas.Infrastructure.Persistence.Contexts
                         break;
                     case EntityState.Modified:
                         entry.Entity.LastModified = DateTime.Now;
-                        entry.Entity.LastModifyBy = loggedUser.FirstName + loggedUser.LastName;
+                        entry.Entity.LastModifiedBy = loggedUser.FirstName + loggedUser.LastName;
                         break;
                 }
             }
@@ -97,6 +97,7 @@ namespace SistemaVentas.Infrastructure.Persistence.Contexts
             {
                 entity.Property(p => p.Nombre).IsRequired();
                 entity.Property(p => p.Precio).HasColumnType("decimal(18,2)").IsRequired();
+                entity.Property(p => p.PrecioOferta).HasColumnType("decimal(18,2)").IsRequired();
                 entity.Property(p => p.Descripcion).HasMaxLength(2000).IsRequired();
                 entity.Property(p => p.Status).HasMaxLength(2).IsRequired();
             });
